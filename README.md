@@ -2,10 +2,15 @@
 
 
 -Instalar express
+
+```bash
 npx install express --save
+```
 
 -Instalar ejs
+```bash
 npm install ejs --save
+```
 
 -Instalar nodejs
 
