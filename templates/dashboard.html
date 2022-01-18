@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Mi cuenta{% endblock %}
+{% block content %}
+<h1 style="margin-bottom: 30px;">Bienvenido</h1>
+
+<div class="is-flex is-align-content-center is-justify-content-center is-flex-direction-column is-flex-grow-0" style="height: 100%;">
+<body>
+    <a href="http://localhost:3000/series" align="middle">Ver catálogo</a><br>
+    <a href="http://localhost:3000/series?miLista=a" align="middle">Ver mi lista</a><br>
+    <a href="{{url_for('logout')}}" align="middle">Cerrar sesión</a>
+</body>
+</div>
+{% endblock %}

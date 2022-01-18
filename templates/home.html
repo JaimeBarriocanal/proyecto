@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<h1 style="margin-bottom: 30px;">Biblioteca de Series</h1>
+
+<div class="is-flex is-align-content-center is-justify-content-center is-flex-direction-column is-flex-grow-0" style="height: 100%;">
+<body> 
+    <a href="{{url_for('login')}}" align="middle">Iniciar sesión</a><br>
+    <a href="{{url_for('register')}}" align="middle">Crear cuenta</a>
+</body>
+</div>
+{% endblock %}

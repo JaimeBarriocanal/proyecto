@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series - Biblioteca de Series</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    
+  <a href="http://127.0.0.1:5000/dashboard" align="middle">Atrás</a><br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Posición</th>
+          <th scope="col"></th>
+          <th scope="col">Título</th>
+          <th scope="col">Puntuación</th>
+          <th scope="col">Año de estreno</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+      <%listaseries.forEach(serie => {%>
+          <tr>
+              <th scope="row"><%= serie.rank %></th>
+              <td><a href="<%= serie.tvSeriesURL%>"><img src="<%= serie.posterURL%>" width="50" height="60"></a></td>
+              <td><%= serie.title %></td>
+              <td><%= serie.rating %></td>
+              <td><%= serie.yearOfRelease %></td>
+              <td><button id =<%= serie.rank %> class="numeroBoton" ><%= anadidas.has(serie.rank) ? "Eliminar" : "Añadir" %></button></td>
+          </tr>
+      <%})%>
+      </tbody>
+    </table>
+    <script>const botones = document.getElementsByClassName("numeroBoton")
+    for(const boton of botones){
+      boton.addEventListener("click", ()=>{
+        const accion = boton.innerHTML;
+        if(accion=="Añadir"){
+          var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({"id": boton.id});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("/series/anadir", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+          boton.innerHTML = "Eliminar"
+        } else {
+          var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({"id": boton.id});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("/series/eliminar", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+          boton.innerHTML = "Añadir"
+        }
+      })
+    }
+    </script>
+</body>
+</html>

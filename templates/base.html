@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>{% block title %}{% endblock %} - Biblioteca de Series</title>
+    {% endblock %}
+</head>
+<body>
+    <div class="main" id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+        &copy; Copyright 2021 by <a href="https://i.ytimg.com/vi/2X7t4ytR3tU/maxresdefault.jpg">you</a>.
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+    <h1 style="margin-bottom: 30px;">Crear cuenta</h1>
+    
+    <div class="is-flex is-align-content-center is-justify-content-center is-flex-direction-column is-flex-grow-0" style="height: 100%; gap: 15px;">
+    <form method="POST"action="" class="is-flex is-align-content-center is-justify-content-center container is-flex-direction-column" style="gap: 15px;">
+        {{ form.hidden_tag() }}
+        {{ form.username }}
+        {{ form.password }}
+        {{ form.submit }}
+    </form>
+    <a href="{{url_for('login')}}" align="middle">¿Ya tienes cuenta? Inicia sesión</a>
+    </div>
+
+    {% endblock %}    
