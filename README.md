@@ -15,8 +15,13 @@ npm install ejs --save
 -Instalar nodejs
 
 -Crear base de datos local:
+
 python
+
 from app import db
+
 db.create_all()
+
 exit()
+
 python app.py
